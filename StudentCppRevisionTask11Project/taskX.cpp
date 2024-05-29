@@ -29,5 +29,28 @@
 */
 
 int taskX(long long number) {
-	return 0;
+	number = number < 0 ? -number : number;
+
+	int count = number == 0 ? 1 : 0;
+	int min_digit = 9;
+
+	long long n = number;
+
+	while (n > 0) {
+		int digit = n % 10;
+		if (min_digit > digit) {
+			min_digit = digit;
+		}
+		n /= 10;
+	}
+
+	while (number > 0) {
+		int digit = number % 10;
+		if (digit == min_digit) {
+			count++;
+		}
+		number /= 10;
+	}
+
+	return count;
 }
