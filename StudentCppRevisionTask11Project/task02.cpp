@@ -26,5 +26,17 @@
 */
 
 string task02(int number) {
-	return "0";
+	if (number < 1){
+		return "0";
+	}
+
+	string result;
+
+	for (int i = 0; pow(2, i) <= number; i++) {
+		int n = pow(2, i);
+		result += to_string(n);
+		result += n * 2 > number ? "" : " ";
+	}
+
+	return result;
 }
